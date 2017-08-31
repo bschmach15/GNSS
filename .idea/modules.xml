@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/GNSS.iml" filepath="$PROJECT_DIR$/.idea/GNSS.iml" />
+      <module fileurl="file://C:\Users\schmabr1\PycharmProjects\python_34_scripts\.idea\python_34_scripts.iml" filepath="C:\Users\schmabr1\PycharmProjects\python_34_scripts\.idea\python_34_scripts.iml" />
+    </modules>
+  </component>
+</project>
