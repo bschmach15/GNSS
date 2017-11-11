@@ -72,7 +72,7 @@ class CoordinateTransforms:
 
     def rotation_matrix_around_z_then_x(self, longitude, latitude):
         theta = radians(longitude)
-        phi= radians(latitude)
+        phi = radians(latitude)
         R = np.empty([3,3])
         R[0, 0], R[0, 1], R[0, 2] = -sin(theta), cos(theta), 0
         R[1, 0], R[1, 1], R[1, 2] = -sin(phi) * cos(theta), -sin(theta) * sin(phi), cos(phi)
@@ -83,7 +83,6 @@ if __name__ == '__main__':
     transformer = CoordinateTransforms()
     boulder_geo = np.array([40 + 53/3600, -(105 + 16/60 + 13/3600), 1630])
     boulder_ecef = np.array([-1288648., -4720213.,4080224.])
-    problem_4dot2_array = np.array([-2694685.473, -4293642.366, 3857878.924])
     longs_peak = np.array([40 + 15 / 60 + 18 / 3600, - (105 + 36 / 60 + 54 / 3600), 4346])
     longs_peak_ecef = transformer.geodetic_to_ecef(longs_peak)
     sat_ecef = np.array([[-16167171.36859017,  -1793649.91595709,  20921584.1223507],
@@ -95,8 +94,7 @@ if __name__ == '__main__':
                [-20958119.81758282, -11180814.24136535,  12035360.9571818 ],
                [-21603200.20988103, -12110203.8432249 ,   9838478.89827281],
                [-22127949.63927174, -12849207.39669298,   7509080.52069034]])
-    # print("BOULDER ECEF COMP: ", "\n", boulder_ecef, "\n",  transformer.geodetic_to_ecef(boulder_geo))
-    # print("BOULDER GEO COMP: ", "\n", boulder_geo, "\n", transformer.ecef_to_geodetic(boulder_ecef))
-    # print(transformer.ecef_to_geodetic(problem_4dot2_array))
-    # print("BOULDER LONGS PEAK ENU: ", transformer.ecef_to_enu(boulder_ecef, longs_peak_ecef))
-    print(transformer.ecef2sky(boulder_ecef, sat_ecef))
+    print("BOULDER ECEF COMP: ", "\n", boulder_ecef, "\n",  np.round(transformer.geodetic_to_ecef(boulder_geo), 2))
+    print("BOULDER GEO COMP: ", "\n", boulder_geo, "\n", transformer.ecef_to_geodetic(boulder_ecef))
+    print("BOULDER LONGS PEAK ENU: \n", transformer.ecef_to_enu(boulder_ecef, longs_peak_ecef))
+    print("SATELLITE AZ/EL: \n", transformer.ecef2sky(boulder_ecef, sat_ecef))
