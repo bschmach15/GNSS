@@ -29,8 +29,7 @@ G15L2 = G15.signals['L2']
 diff = diff(G15L1.carrier)/30.0  # Dividing by 30 since the difference between each measurement is 30 seconds
 diff = np.append(diff, nan)
 
-G15DataFrame = pd.DataFrame({"pr": G15L1.pr, "L1 SNR": G15L1.snr, "L2 SNR": G15L2.snr, "L1 Doppler": G15L1.doppler,
-                             "L2 Doppler": G15L2.doppler, "L1 Doppler Derived": diff}, index=time)
+G15DataFrame = pd.DataFrame({"pr": G15L1.pr, "L1 SNR": G15L1.snr, "L2 SNR": G15L2.snr, "L1 Doppler": G15L1.doppler,"L2 Doppler": G15L2.doppler, "L1 Doppler Derived": diff}, index=time)
 
 
 def plot_stuff():
